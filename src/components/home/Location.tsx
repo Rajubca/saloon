@@ -79,10 +79,10 @@ export default function Location() {
               <div className="bg-white p-6 rounded-xl border border-brand-100 shadow-sm hover:shadow-md transition-shadow">
                 <h4 className="font-serif font-bold text-xl text-brand-900 mb-3">Contact</h4>
                 <p className="text-brand-600 text-sm leading-relaxed mb-4">
-                  For bookings and inquiries:
+                  For bookings and inquiries:<br/><strong>Rajash Joshi</strong>
                 </p>
-                <a href="tel:+919876543210" className="block text-brand-500 font-bold hover:text-brand-700 transition-colors mb-2">
-                  +91 98765 43210
+                <a href="tel:9898678440" className="block text-brand-500 font-bold hover:text-brand-700 transition-colors mb-2">
+                  9898678440
                 </a>
                 <a href="mailto:hello@xsaloon.com" className="block text-brand-500 font-bold hover:text-brand-700 transition-colors">
                   hello@xsaloon.com
