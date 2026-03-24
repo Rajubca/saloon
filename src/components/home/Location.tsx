@@ -20,7 +20,7 @@ export default function Location() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ duration: 1.0, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
             className="text-4xl md:text-5xl font-serif text-brand-900 font-bold"
           >
             Visit Our Saloon
@@ -34,7 +34,7 @@ export default function Location() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1.0] }}
             className="w-full h-[500px] bg-brand-200 rounded-2xl overflow-hidden shadow-2xl relative"
           >
             {/* Embedded Google Map (Placeholder iframe) */}
@@ -55,7 +55,7 @@ export default function Location() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1.0] }}
             className="space-y-12"
           >
             <div>

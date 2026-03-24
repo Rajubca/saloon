@@ -14,7 +14,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-brand-500 uppercase tracking-widest text-sm font-semibold mb-4 block"
             >
               The xSaloon Experience
@@ -24,7 +24,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 1.0, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-900 font-bold mb-8 leading-tight"
             >
               Elevate Your <br />
@@ -35,7 +35,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 1.0, delay: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-brand-700 text-lg leading-relaxed mb-6"
             >
               Located in the vibrant heart of Vaghodia Road, Baroda, xSaloon is more than just a place to get a haircut. It&apos;s a sanctuary designed for those who appreciate the finer details of self-care.
@@ -45,7 +45,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 1.0, delay: 0.6, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-brand-700 text-lg leading-relaxed mb-10"
             >
               Our master stylists and therapists bring years of expertise, utilizing premium products and innovative techniques to craft a look that is uniquely yours. We believe that when you look exceptional, you feel extraordinary.
@@ -55,7 +55,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 1.0, delay: 0.8, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="flex items-center gap-6"
             >
               <div className="text-center border-r border-brand-200 pr-6">
@@ -75,14 +75,14 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="absolute inset-0 right-10 top-10 bg-brand-200"
             />
             <motion.div
               initial={{ opacity: 0, x: 50, y: -50 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="absolute inset-4 bg-cover bg-center shadow-2xl"
               style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=2511&auto=format&fit=crop")' }}
             />

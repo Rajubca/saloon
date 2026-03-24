@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SmoothScrolling from '@/components/SmoothScrolling';
 
 export const metadata: Metadata = {
   title: 'xSaloon | Luxury Salon on Vaghodia Road, Baroda',
@@ -14,11 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="">
       <body className="antialiased font-sans text-brand-900 bg-brand-50 min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <SmoothScrolling>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );

@@ -39,7 +39,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ duration: 1.0, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
             className="text-4xl md:text-5xl font-serif text-brand-900 font-bold"
           >
             Words of Praise
@@ -53,7 +53,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 1.0, delay: index * 0.15, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="bg-white p-8 md:p-10 shadow-sm border border-brand-100 relative group hover:shadow-xl transition-shadow duration-500"
             >
               <div className="flex space-x-1 mb-6 text-brand-500">

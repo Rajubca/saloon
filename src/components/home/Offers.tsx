@@ -49,7 +49,7 @@ export default function Offers() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ duration: 1.0, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
             className="text-4xl md:text-5xl font-serif text-white font-bold"
           >
             Current Offers
@@ -63,7 +63,7 @@ export default function Offers() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 1.0, delay: index * 0.15, ease: [0.25, 0.1, 0.25, 1.0] }}
               className={`p-8 md:p-10 rounded-xl ${offer.bg} text-brand-900 shadow-xl relative overflow-hidden group`}
             >
               <div className="absolute top-4 right-4 px-3 py-1 bg-white/50 backdrop-blur-sm rounded-full text-xs font-bold uppercase tracking-wider">

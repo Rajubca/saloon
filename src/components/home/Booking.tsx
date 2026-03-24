@@ -23,7 +23,7 @@ export default function Booking() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              transition={{ duration: 1.0, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-4xl md:text-5xl font-serif text-brand-900 font-bold mb-8"
             >
               Book an Appointment
@@ -32,7 +32,7 @@ export default function Booking() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ duration: 1.0, delay: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-brand-700 text-lg leading-relaxed mb-10"
             >
               Fill out the form to schedule your visit. Our team will contact you shortly to confirm your booking and details. We recommend booking at least 24 hours in advance.
@@ -57,7 +57,7 @@ export default function Booking() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="bg-brand-50 p-8 md:p-12 shadow-xl border border-brand-100 rounded-2xl relative"
             >
               <form className="space-y-6">
