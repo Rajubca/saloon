@@ -17,12 +17,18 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2574&auto=format&fit=crop")' }}
-      >
-        <div className="absolute inset-0 bg-brand-900/60 mix-blend-multiply" />
+      {/* Background Video with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="https://cdn.pixabay.com/video/2021/08/04/83897-584742456_large.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-brand-900/70 mix-blend-multiply" />
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20">

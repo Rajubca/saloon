@@ -35,7 +35,7 @@ export default function Location() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1.0] }}
-            className="w-full h-[500px] bg-brand-200 rounded-2xl overflow-hidden shadow-2xl relative"
+            className="w-full h-[500px] bg-brand-200 rounded-2xl overflow-hidden shadow-2xl relative group"
           >
             {/* Embedded Google Map (Placeholder iframe) */}
             <iframe
@@ -46,8 +46,13 @@ export default function Location() {
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 grayscale contrast-125 hover:grayscale-0 transition-all duration-1000"
+              className="absolute inset-0 grayscale contrast-125 transition-all duration-1000 pointer-events-none group-hover:pointer-events-auto"
             ></iframe>
+
+            {/* Overlay to prevent scroll trapping until hovered/clicked specifically */}
+            <div className="absolute inset-0 bg-transparent z-10 pointer-events-auto group-hover:pointer-events-none flex items-center justify-center">
+               <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 text-brand-900 px-4 py-2 rounded-full text-sm font-medium shadow-sm pointer-events-none">Interact with map</span>
+            </div>
           </motion.div>
 
           {/* Contact Details */}
