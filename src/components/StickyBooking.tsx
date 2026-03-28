@@ -9,13 +9,24 @@ export default function StickyBooking() {
   const lenis = useLenis();
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      // Show sticky button only after scrolling past the hero section
-      const heroHeight = document.getElementById('home')?.offsetHeight || 600;
-      setIsVisible(window.scrollY > heroHeight && window.scrollY < document.body.scrollHeight - 1000);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // ⚡ Bolt: Throttled scroll evaluation with requestAnimationFrame to prevent layout thrashing
+          setIsVisible((prev) => {
+            const heroHeight = document.getElementById('home')?.offsetHeight || 600;
+            const newIsVisible = window.scrollY > heroHeight && window.scrollY < document.body.scrollHeight - 1000;
+            return prev !== newIsVisible ? newIsVisible : prev;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
