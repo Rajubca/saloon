@@ -1,0 +1,4 @@
+## 2026-03-28 - [Missing Input Validation on Client Forms]
+**Vulnerability:** The booking form lacks basic HTML5 validation (`required`, `maxLength`, `pattern`). While there is no backend API processing this yet, submitting excessively large strings or malformed data can lead to degraded client-side performance, browser hangs, or unexpected behavior if this data is later processed or logged.
+**Learning:** Client-side forms must always include boundaries (`maxLength`) and structure validation (`pattern`, `type`) to enforce correct data shapes early. Even in static/frontend-only sites, this prevents garbage data and mitigates potential client-side Denial of Service risks from unbounded inputs.
+**Prevention:** Always add `required`, `maxLength` limits, and appropriate `pattern` or `type` constraints to every user input field.
