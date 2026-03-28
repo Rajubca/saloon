@@ -254,8 +254,8 @@ export default function Services() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {servicesData[activeCategory].map((service) => (
-                <div key={service.title} className="group cursor-pointer" onClick={() => openModal(service)}>
-                  <div className="relative h-80 overflow-hidden mb-6 rounded-xl">
+                <div key={service.title} className="group cursor-pointer block w-full h-full" onClick={() => openModal(service)}>
+                  <div className="relative h-80 overflow-hidden mb-6 rounded-xl pointer-events-none">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                       style={{ backgroundImage: `url("${service.img}")` }}
@@ -266,7 +266,7 @@ export default function Services() {
                     </div>
                   </div>
 
-                  <div className="px-2">
+                  <div className="px-2 pointer-events-none">
                     <div className="flex justify-between items-center mb-3">
                       <h3 className="text-2xl font-serif text-brand-900 font-bold">{service.title}</h3>
                       <span className="text-brand-600 font-medium">{service.price}</span>
@@ -287,6 +287,7 @@ export default function Services() {
       <AnimatePresence>
         {selectedService && (
           <motion.div
+            key="modal"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -302,7 +303,7 @@ export default function Services() {
             </button>
 
             <div
-              className="relative w-full max-w-5xl h-[70vh] md:h-[80vh] flex flex-col items-center justify-center"
+              className="relative w-full max-w-5xl h-[70vh] md:h-[80vh] flex flex-col items-center justify-center cursor-default"
               onClick={(e) => e.stopPropagation()}
             >
 
@@ -347,19 +348,19 @@ export default function Services() {
                 {/* Controls */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 text-white backdrop-blur-md hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 text-white backdrop-blur-md hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 text-white backdrop-blur-md hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 text-white backdrop-blur-md hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
 
                 {/* Indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
                   {selectedService.gallery.map((_, idx) => (
                     <button
                       key={idx}
