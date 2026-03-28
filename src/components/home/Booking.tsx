@@ -82,6 +82,8 @@ export default function Booking() {
                       id="name"
                       type="text"
                       placeholder="Jane Doe"
+                      required
+                      maxLength={100}
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
@@ -91,6 +93,9 @@ export default function Booking() {
                       id="phone"
                       type="tel"
                       placeholder="+91 98765 43210"
+                      required
+                      maxLength={20}
+                      pattern="[0-9+\-\s()]+"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
@@ -115,6 +120,7 @@ export default function Booking() {
                     <input
                       id="date"
                       type="date"
+                      required
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 cursor-pointer"
                     />
                   </div>
@@ -134,6 +140,7 @@ export default function Booking() {
                   <textarea
                     id="notes"
                     rows={4}
+                    maxLength={500}
                     placeholder="Any specific requests or requirements..."
                     className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
                   ></textarea>
