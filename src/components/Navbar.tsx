@@ -20,23 +20,8 @@ export default function Navbar() {
   const lenis = useLenis();
 
   useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          // ⚡ Bolt: Only update state if the value actually changes to prevent unnecessary re-renders
-          setScrolled((prev) => {
-            const isScrolled = window.scrollY > 50;
-            return prev !== isScrolled ? isScrolled : prev;
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

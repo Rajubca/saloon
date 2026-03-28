@@ -1,22 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Loader2 } from 'lucide-react';
 
 export default function Booking() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      // Optional: Add success state or toast here later
-    }, 1500);
-  };
-
   return (
     <section id="book" className="py-24 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,36 +60,29 @@ export default function Booking() {
               transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="bg-brand-50 p-8 md:p-12 shadow-xl border border-brand-100 rounded-2xl relative"
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Full Name</label>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Full Name</label>
                     <input
-                      id="name"
                       type="text"
                       placeholder="Jane Doe"
-                      required
-                      maxLength={100}
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Phone Number</label>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Phone Number</label>
                     <input
-                      id="phone"
                       type="tel"
                       placeholder="+91 98765 43210"
-                      required
-                      maxLength={20}
-                      pattern="[0-9+\-\s()]+"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Select Service</label>
-                  <select id="service" defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                  <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Select Service</label>
+                  <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                     <option value="" disabled>Choose a service...</option>
                     <option value="haircut">Precision Haircut</option>
                     <option value="spa">Luxury Hair Spa</option>
@@ -116,17 +95,15 @@ export default function Booking() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="date" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Date</label>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Date</label>
                     <input
-                      id="date"
                       type="date"
-                      required
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 cursor-pointer"
                     />
                   </div>
                   <div>
-                    <label htmlFor="time" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Preferred Time</label>
-                    <select id="time" defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Preferred Time</label>
+                    <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                       <option value="" disabled>Choose a time...</option>
                       <option value="morning">Morning (9AM - 12PM)</option>
                       <option value="afternoon">Afternoon (12PM - 4PM)</option>
@@ -136,29 +113,19 @@ export default function Booking() {
                 </div>
 
                 <div>
-                  <label htmlFor="notes" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Additional Notes</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Additional Notes</label>
                   <textarea
-                    id="notes"
                     rows={4}
-                    maxLength={500}
                     placeholder="Any specific requests or requirements..."
                     className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
                   ></textarea>
                 </div>
 
                 <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-brand-900 hover:bg-brand-800 text-brand-50 font-bold uppercase tracking-widest py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:-translate-y-0 disabled:hover:bg-brand-900 transform hover:-translate-y-1"
+                  type="button"
+                  className="w-full bg-brand-900 hover:bg-brand-800 text-brand-50 font-bold uppercase tracking-widest py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>Confirming...</span>
-                    </>
-                  ) : (
-                    <span>Confirm Booking</span>
-                  )}
+                  Confirm Booking
                 </button>
               </form>
             </motion.div>
