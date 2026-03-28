@@ -254,7 +254,12 @@ export default function Services() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {servicesData[activeCategory].map((service) => (
-                <div key={service.title} className="group cursor-pointer block w-full h-full" onClick={() => openModal(service)}>
+                <button
+                  key={service.title}
+                  className="group cursor-pointer block w-full h-full text-left focus:outline-none focus:ring-4 focus:ring-brand-500 focus:ring-offset-2 rounded-xl"
+                  onClick={() => openModal(service)}
+                  aria-label={`View details for ${service.title}`}
+                >
                   <div className="relative h-80 overflow-hidden mb-6 rounded-xl pointer-events-none">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -275,7 +280,7 @@ export default function Services() {
                       {service.desc}
                     </p>
                   </div>
-                </div>
+                </button>
               ))}
             </motion.div>
           </AnimatePresence>
