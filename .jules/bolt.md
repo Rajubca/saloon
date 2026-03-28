@@ -1,0 +1,3 @@
+## 2024-05-24 - [Code Splitting Below-the-Fold Components in Next.js App Router]
+**Learning:** Next.js App Router by default creates static chunks for imported components. For a single-page style website where many sections are imported into `page.tsx`, the initial JS bundle can grow unnecessarily large with components that aren't visible until the user scrolls down (e.g., `Gallery`, `Testimonials`, `Location`).
+**Action:** Use `next/dynamic` to dynamically import below-the-fold components in `app/page.tsx`. This splits them into separate JS chunks, reducing the initial load payload and improving Time to Interactive (TTI), which is particularly beneficial when those components contain heavy dependencies like `framer-motion` or large image arrays.
