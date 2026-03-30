@@ -63,26 +63,32 @@ export default function Booking() {
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Full Name</label>
+                    <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Full Name <span className="text-red-500">*</span></label>
                     <input
+                      id="fullName"
                       type="text"
                       placeholder="Jane Doe"
+                      required
+                      aria-required="true"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Phone Number</label>
+                    <label htmlFor="phoneNumber" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
                     <input
+                      id="phoneNumber"
                       type="tel"
                       placeholder="+91 98765 43210"
+                      required
+                      aria-required="true"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Select Service</label>
-                  <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                  <label htmlFor="service" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Select Service <span className="text-red-500">*</span></label>
+                  <select id="service" defaultValue="" required aria-required="true" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                     <option value="" disabled>Choose a service...</option>
                     <option value="haircut">Precision Haircut</option>
                     <option value="spa">Luxury Hair Spa</option>
@@ -95,15 +101,18 @@ export default function Booking() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Date</label>
+                    <label htmlFor="bookingDate" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Date <span className="text-red-500">*</span></label>
                     <input
+                      id="bookingDate"
                       type="date"
+                      required
+                      aria-required="true"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 cursor-pointer"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Preferred Time</label>
-                    <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                    <label htmlFor="preferredTime" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Preferred Time <span className="text-red-500">*</span></label>
+                    <select id="preferredTime" defaultValue="" required aria-required="true" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                       <option value="" disabled>Choose a time...</option>
                       <option value="morning">Morning (9AM - 12PM)</option>
                       <option value="afternoon">Afternoon (12PM - 4PM)</option>
@@ -113,8 +122,9 @@ export default function Booking() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Additional Notes</label>
+                  <label htmlFor="additionalNotes" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Additional Notes</label>
                   <textarea
+                    id="additionalNotes"
                     rows={4}
                     placeholder="Any specific requests or requirements..."
                     className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
