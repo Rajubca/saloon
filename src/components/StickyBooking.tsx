@@ -9,14 +9,56 @@ export default function StickyBooking() {
   const lenis = useLenis();
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Show sticky button only after scrolling past the hero section
-      const heroHeight = document.getElementById('home')?.offsetHeight || 600;
-      setIsVisible(window.scrollY > heroHeight && window.scrollY < document.body.scrollHeight - 1000);
+    let heroHeight = 600;
+    let documentHeight = 0;
+    let ticking = false;
+
+    // Update layout metrics
+    const updateLayoutMetrics = () => {
+      const homeEl = document.getElementById('home');
+      heroHeight = homeEl?.offsetHeight || 600;
+      documentHeight = document.body.scrollHeight;
+      // Trigger scroll check immediately to update visibility if resize changed layout
+      handleScroll();
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsVisible(window.scrollY > heroHeight && window.scrollY < documentHeight - 1000);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    // Use ResizeObserver to detect changes in the document body's size
+    // This is more robust than window.resize for content changes (like lazy loading)
+    let resizeObserver: ResizeObserver | null = null;
+
+    if (typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(() => {
+        updateLayoutMetrics();
+      });
+      resizeObserver.observe(document.body);
+    } else {
+      // Fallback
+      window.addEventListener('resize', updateLayoutMetrics, { passive: true });
+    }
+
+    // Initial calculation
+    updateLayoutMetrics();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      } else {
+        window.removeEventListener('resize', updateLayoutMetrics);
+      }
+    };
   }, []);
 
   const scrollToBook = () => {

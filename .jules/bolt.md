@@ -1,0 +1,3 @@
+## 2024-05-18 - Prevent Layout Thrashing in Scroll Handlers
+**Learning:** React components (`StickyBooking.tsx`, `Navbar.tsx`) were reading layout properties (`offsetHeight`, `scrollHeight`) and updating state synchronously within high-frequency `scroll` event listeners. This caused severe layout thrashing (synchronous reflows) and dropped frame rates during scrolling.
+**Action:** Always cache layout calculations outside of `scroll` events (e.g., update them on `resize` or mount). Always throttle state updates and layout reads inside `scroll` handlers using `requestAnimationFrame` to ensure they run at most once per frame. Use `{ passive: true }` for scroll event listeners to prevent blocking the main thread.
