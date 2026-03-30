@@ -1,0 +1,3 @@
+## 2024-05-15 - [Scroll Handler Layout Thrashing]
+**Learning:** Found a severe layout thrashing pattern in `StickyBooking.tsx`. Reading DOM dimensions (`document.getElementById('home')?.offsetHeight` and `document.body.scrollHeight`) inside an unthrottled `scroll` event handler forces synchronous layout recalculations on every single scroll frame, leading to jank and CPU spikes.
+**Action:** Always decouple DOM reads from high-frequency events. Use `requestAnimationFrame` for scroll handlers, cache static DOM dimensions, and use `{ passive: true }` when adding scroll event listeners to prevent main-thread blocking.

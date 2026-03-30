@@ -9,13 +9,35 @@ export default function StickyBooking() {
   const lenis = useLenis();
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Show sticky button only after scrolling past the hero section
-      const heroHeight = document.getElementById('home')?.offsetHeight || 600;
-      setIsVisible(window.scrollY > heroHeight && window.scrollY < document.body.scrollHeight - 1000);
+    // Cache the heights if possible to avoid reading from DOM on every scroll frame
+    // In a real app, this could be updated on window resize
+    let heroHeight = 600;
+    let bodyHeight = 0;
+
+    let ticking = false;
+
+    const updateVisibility = () => {
+      // Read DOM inside rAF, but cache values where possible.
+      // Since body height can change on resize/load, we check it inside rAF.
+      const homeEl = document.getElementById('home');
+      if (homeEl) heroHeight = homeEl.offsetHeight;
+      bodyHeight = document.body.scrollHeight;
+
+      const scrollY = window.scrollY;
+      // ⚡ Bolt: Removed synchronous layout thrashing by utilizing requestAnimationFrame
+      setIsVisible(scrollY > heroHeight && scrollY < bodyHeight - 1000);
+      ticking = false;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateVisibility);
+        ticking = true;
+      }
+    };
+
+    // ⚡ Bolt: Added passive: true to prevent scroll jank
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

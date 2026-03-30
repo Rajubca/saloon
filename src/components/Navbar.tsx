@@ -20,8 +20,23 @@ export default function Navbar() {
   const lenis = useLenis();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
+    let ticking = false;
+
+    const updateScroll = () => {
+      // ⚡ Bolt: Removed synchronous layout thrashing by utilizing requestAnimationFrame
+      setScrolled(window.scrollY > 50);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
+    };
+
+    // ⚡ Bolt: Added passive: true to prevent scroll jank
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
