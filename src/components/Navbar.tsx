@@ -20,9 +20,26 @@ export default function Navbar() {
   const lenis = useLenis();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    let ticking = false;
+    let frameId: number;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        // ⚡ Bolt: Throttling scroll event using requestAnimationFrame to prevent unnecessary
+        // React re-renders and main thread blocking on scroll.
+        frameId = window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
   }, []);
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
