@@ -66,6 +66,7 @@ export default function Booking() {
                     <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Full Name</label>
                     <input
                       type="text"
+                      maxLength={100}
                       placeholder="Jane Doe"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
@@ -74,6 +75,7 @@ export default function Booking() {
                     <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Phone Number</label>
                     <input
                       type="tel"
+                      maxLength={20}
                       placeholder="+91 98765 43210"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
@@ -116,6 +118,7 @@ export default function Booking() {
                   <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Additional Notes</label>
                   <textarea
                     rows={4}
+                    maxLength={1000}
                     placeholder="Any specific requests or requirements..."
                     className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
                   ></textarea>
