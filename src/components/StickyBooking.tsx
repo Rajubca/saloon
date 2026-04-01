@@ -9,14 +9,27 @@ export default function StickyBooking() {
   const lenis = useLenis();
 
   useEffect(() => {
+    let ticking = false;
+    let rafId = 0;
+
     const handleScroll = () => {
-      // Show sticky button only after scrolling past the hero section
-      const heroHeight = document.getElementById('home')?.offsetHeight || 600;
-      setIsVisible(window.scrollY > heroHeight && window.scrollY < document.body.scrollHeight - 1000);
+      if (!ticking) {
+        rafId = requestAnimationFrame(() => {
+          // Show sticky button only after scrolling past the hero section
+          const heroHeight = document.getElementById('home')?.offsetHeight || 600;
+          setIsVisible(window.scrollY > heroHeight && window.scrollY < document.body.scrollHeight - 1000);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const scrollToBook = () => {
