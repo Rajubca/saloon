@@ -68,6 +68,8 @@ export default function Booking() {
                       type="text"
                       placeholder="Jane Doe"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
+                      maxLength={100}
+                      required
                     />
                   </div>
                   <div>
@@ -76,13 +78,17 @@ export default function Booking() {
                       type="tel"
                       placeholder="+91 98765 43210"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
+                      maxLength={20}
+                      pattern="[0-9+\-\s]+"
+                      title="Please enter a valid phone number"
+                      required
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Select Service</label>
-                  <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                  <select defaultValue="" required className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                     <option value="" disabled>Choose a service...</option>
                     <option value="haircut">Precision Haircut</option>
                     <option value="spa">Luxury Hair Spa</option>
@@ -98,12 +104,13 @@ export default function Booking() {
                     <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Date</label>
                     <input
                       type="date"
+                      required
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 cursor-pointer"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Preferred Time</label>
-                    <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                    <select defaultValue="" required className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                       <option value="" disabled>Choose a time...</option>
                       <option value="morning">Morning (9AM - 12PM)</option>
                       <option value="afternoon">Afternoon (12PM - 4PM)</option>
@@ -118,11 +125,12 @@ export default function Booking() {
                     rows={4}
                     placeholder="Any specific requests or requirements..."
                     className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
+                    maxLength={500}
                   ></textarea>
                 </div>
 
                 <button
-                  type="button"
+                  type="submit"
                   className="w-full bg-brand-900 hover:bg-brand-800 text-brand-50 font-bold uppercase tracking-widest py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
                   Confirm Booking
