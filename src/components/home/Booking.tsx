@@ -67,6 +67,8 @@ export default function Booking() {
                     <input
                       type="text"
                       placeholder="Jane Doe"
+                      required
+                      maxLength={50}
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
@@ -75,6 +77,9 @@ export default function Booking() {
                     <input
                       type="tel"
                       placeholder="+91 98765 43210"
+                      required
+                      maxLength={20}
+                      pattern="^\+?[0-9\s\-()]{10,20}$"
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
@@ -82,7 +87,7 @@ export default function Booking() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Select Service</label>
-                  <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                  <select defaultValue="" required className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                     <option value="" disabled>Choose a service...</option>
                     <option value="haircut">Precision Haircut</option>
                     <option value="spa">Luxury Hair Spa</option>
@@ -98,12 +103,13 @@ export default function Booking() {
                     <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Date</label>
                     <input
                       type="date"
+                      required
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 cursor-pointer"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Preferred Time</label>
-                    <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                    <select defaultValue="" required className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                       <option value="" disabled>Choose a time...</option>
                       <option value="morning">Morning (9AM - 12PM)</option>
                       <option value="afternoon">Afternoon (12PM - 4PM)</option>
@@ -117,6 +123,7 @@ export default function Booking() {
                   <textarea
                     rows={4}
                     placeholder="Any specific requests or requirements..."
+                    maxLength={500}
                     className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
                   ></textarea>
                 </div>
