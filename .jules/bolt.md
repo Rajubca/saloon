@@ -1,0 +1,3 @@
+## 2024-11-20 - Unthrottled scroll handlers querying DOM properties causing layout thrashing
+**Learning:** Using synchronous `scroll` event listeners to update component state or directly access layout properties (like `offsetHeight` or `scrollHeight`) causes layout thrashing and excessive React re-renders. Every pixel of scroll triggers the handler before the frame can paint.
+**Action:** Always wrap state updates and DOM queries within `scroll` handlers using `requestAnimationFrame` to throttle execution to once per frame, and use `{ passive: true }` on `addEventListener` when calling `preventDefault()` is not needed.
