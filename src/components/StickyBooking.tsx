@@ -9,14 +9,28 @@ export default function StickyBooking() {
   const lenis = useLenis();
 
   useEffect(() => {
+    let ticking = false;
+    let animationFrameId: number;
+
     const handleScroll = () => {
-      // Show sticky button only after scrolling past the hero section
-      const heroHeight = document.getElementById('home')?.offsetHeight || 600;
-      setIsVisible(window.scrollY > heroHeight && window.scrollY < document.body.scrollHeight - 1000);
+      // Throttle scroll events to animation frames to prevent excessive React re-renders
+      if (!ticking) {
+        animationFrameId = requestAnimationFrame(() => {
+          // Show sticky button only after scrolling past the hero section
+          const heroHeight = document.getElementById('home')?.offsetHeight || 600;
+          setIsVisible(window.scrollY > heroHeight && window.scrollY < document.body.scrollHeight - 1000);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Use passive listener to avoid blocking the main thread during scrolling
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   const scrollToBook = () => {
