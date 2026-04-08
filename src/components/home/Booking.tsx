@@ -60,29 +60,39 @@ export default function Booking() {
               transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="bg-brand-50 p-8 md:p-12 shadow-xl border border-brand-100 rounded-2xl relative"
             >
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Full Name</label>
+                    <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">
+                      Full Name <span className="text-red-500 ml-1">*</span>
+                    </label>
                     <input
+                      id="fullName"
                       type="text"
                       placeholder="Jane Doe"
+                      required
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Phone Number</label>
+                    <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">
+                      Phone Number <span className="text-red-500 ml-1">*</span>
+                    </label>
                     <input
+                      id="phone"
                       type="tel"
                       placeholder="+91 98765 43210"
+                      required
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Select Service</label>
-                  <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                  <label htmlFor="service" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">
+                    Select Service <span className="text-red-500 ml-1">*</span>
+                  </label>
+                  <select id="service" defaultValue="" required className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                     <option value="" disabled>Choose a service...</option>
                     <option value="haircut">Precision Haircut</option>
                     <option value="spa">Luxury Hair Spa</option>
@@ -95,15 +105,21 @@ export default function Booking() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Date</label>
+                    <label htmlFor="date" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">
+                      Date <span className="text-red-500 ml-1">*</span>
+                    </label>
                     <input
+                      id="date"
                       type="date"
+                      required
                       className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 cursor-pointer"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Preferred Time</label>
-                    <select defaultValue="" className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
+                    <label htmlFor="time" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">
+                      Preferred Time <span className="text-red-500 ml-1">*</span>
+                    </label>
+                    <select id="time" defaultValue="" required className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-brand-900 appearance-none cursor-pointer">
                       <option value="" disabled>Choose a time...</option>
                       <option value="morning">Morning (9AM - 12PM)</option>
                       <option value="afternoon">Afternoon (12PM - 4PM)</option>
@@ -113,8 +129,9 @@ export default function Booking() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Additional Notes</label>
+                  <label htmlFor="notes" className="block text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">Additional Notes</label>
                   <textarea
+                    id="notes"
                     rows={4}
                     placeholder="Any specific requests or requirements..."
                     className="w-full bg-white border border-brand-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
@@ -122,7 +139,7 @@ export default function Booking() {
                 </div>
 
                 <button
-                  type="button"
+                  type="submit"
                   className="w-full bg-brand-900 hover:bg-brand-800 text-brand-50 font-bold uppercase tracking-widest py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
                   Confirm Booking
