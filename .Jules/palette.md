@@ -1,0 +1,3 @@
+## 2024-04-09 - Accessible Custom Modals
+**Learning:** Custom interactive components like image gallery modals often rely heavily on visual cues (icon-only buttons for navigation and closing) and assume mouse interactions. Screen reader users need descriptive names for these controls, and keyboard users need explicit event listeners.
+**Action:** Ensure custom modals always include `aria-label` attributes on icon-only buttons (Close, Previous, Next) and add explicit `keydown` event listeners for `Escape` and arrow keys to support standard keyboard interactions when the modal is active.

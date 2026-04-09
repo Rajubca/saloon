@@ -169,8 +169,22 @@ export default function Services() {
       document.body.style.overflow = 'unset';
     }
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedService) return;
+      if (e.key === 'Escape') {
+        setSelectedService(null);
+      } else if (e.key === 'ArrowRight') {
+        setCurrentImageIndex((prev) => (prev + 1) % selectedService.gallery.length);
+      } else if (e.key === 'ArrowLeft') {
+        setCurrentImageIndex((prev) => (prev - 1 + selectedService.gallery.length) % selectedService.gallery.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedService]);
 
@@ -302,6 +316,7 @@ export default function Services() {
           >
             <button
               onClick={closeModal}
+              aria-label="Close modal"
               className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-50 p-2 bg-brand-800/50 rounded-full hover:bg-brand-800 cursor-pointer"
             >
               <X className="w-8 h-8" />
@@ -353,12 +368,14 @@ export default function Services() {
                 {/* Controls */}
                 <button
                   onClick={prevImage}
+                  aria-label="Previous image"
                   className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 text-white backdrop-blur-md hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={nextImage}
+                  aria-label="Next image"
                   className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 text-white backdrop-blur-md hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20"
                 >
                   <ChevronRight className="w-6 h-6" />
@@ -369,6 +386,7 @@ export default function Services() {
                   {selectedService.gallery.map((_, idx) => (
                     <button
                       key={idx}
+                      aria-label={`View image ${idx + 1}`}
                       onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
                       className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === currentImageIndex ? 'w-6 bg-white' : 'bg-white/50 hover:bg-white/80'}`}
                     />
