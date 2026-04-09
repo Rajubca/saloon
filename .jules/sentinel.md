@@ -1,0 +1,4 @@
+## 2024-04-09 - [Enforce native HTML5 input validation on Booking form]
+**Vulnerability:** Missing client-side input validation on the Booking form, allowing arbitrary empty or large submissions if handled incorrectly.
+**Learning:** React/Next.js single-page applications often use custom `onSubmit` or `onClick` handlers that bypass native HTML5 validation unless carefully designed. By combining `onSubmit={(e) => e.preventDefault()}` with a `type="submit"` button and standard HTML5 attributes (`required`, `maxLength`, `pattern`), we can prevent SPA full page reloads while still leveraging the browser's native built-in validation constraints for defense-in-depth against basic client-side payload limits.
+**Prevention:** Always ensure forms leverage native HTML5 constraints along with `e.preventDefault()` rather than purely relying on custom JavaScript validation, providing a robust first layer of defense.
