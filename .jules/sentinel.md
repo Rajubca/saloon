@@ -1,0 +1,4 @@
+## 2025-02-28 - Client-Side Validation Enhancement
+**Vulnerability:** The booking form entirely lacked validation mechanisms. While the application is purely frontend, missing validation allows oversized or improperly formatted data to be constructed by the user, providing a poor experience and weak defense in depth.
+**Learning:** Native HTML5 validation provides an effective, dependency-free method to implement basic security boundaries directly in React/Next.js components. When swapping `type="button"` to `type="submit"`, it is critical to add `onSubmit={(e) => e.preventDefault()}` to the wrapping `<form>` to block full page reloads while still triggering browser-native validation tooltips.
+**Prevention:** Always ensure initial form implementation includes basic HTML attributes like `required`, `maxLength`, and `pattern`.
