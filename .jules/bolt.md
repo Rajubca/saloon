@@ -1,0 +1,3 @@
+## 2024-03-24 - Preventing Layout Thrashing from Raw Scroll Events
+**Learning:** Adding unthrottled scroll event listeners in React components (like `Navbar` and `StickyBooking`) that query DOM properties (`offsetHeight`) or trigger state updates can cause severe layout thrashing and excessive re-renders, dropping the framerate significantly.
+**Action:** Always wrap scroll event handlers in `requestAnimationFrame` to throttle execution to the browser's refresh rate, ensure `cancelAnimationFrame` is called in the `useEffect` cleanup to prevent memory leaks, and append `{ passive: true }` to the event listener to avoid blocking the main thread's scrolling performance.
