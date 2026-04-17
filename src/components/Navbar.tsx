@@ -77,6 +77,8 @@ export default function Navbar() {
           <button
             className="md:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "Close main menu" : "Open main menu"}
           >
             {isOpen ? (
               <X className={`w-6 h-6 ${scrolled ? 'text-brand-900' : 'text-white'}`} />
