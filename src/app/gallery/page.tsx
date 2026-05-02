@@ -1,71 +1,84 @@
 "use client";
 
 import { useState } from 'react';
-import PageTransition from '@/components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import PageTransition from '@/components/PageTransition';
+import { Dialog, DialogContent, } from '@/components/ui/dialog';
+import * as DialogPrimitive from "@radix-ui/react-dialog"
+
+const galleryImages = [
+  { id: 1, category: "Bridal", src: "/assets/g1.jpg", alt: "Bridal Makeup 1" },
+  { id: 2, category: "Hair", src: "/assets/g2.jpg", alt: "Hair Styling 1" },
+  { id: 3, category: "Makeup", src: "/assets/g3.jpg", alt: "Party Makeup 1" },
+  { id: 4, category: "Bridal", src: "/assets/g4.jpg", alt: "Bridal Makeup 2" },
+  { id: 5, category: "Hair", src: "/assets/g5.jpg", alt: "Hair Styling 2" },
+  { id: 6, category: "Makeup", src: "/assets/g6.jpg", alt: "Party Makeup 2" },
+];
 
 export default function Gallery() {
+  const [filter, setFilter] = useState("All");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  // Placeholders that can be replaced later
-  const images = Array.from({ length: 9 }).map((_, i) => `/assets/gallery-${i + 1}.jpg`);
+  const filteredImages = filter === "All"
+    ? galleryImages
+    : galleryImages.filter(img => img.category === filter);
 
   return (
     <PageTransition>
-      <div className="pt-12 pb-24 px-6 max-w-7xl mx-auto">
-        <h1 className="text-5xl font-serif text-brand-600 mb-16 text-center text-neon">Gallery</h1>
+      <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-serif text-brand-100 mb-6">Our <span className="text-gradient">Portfolio</span></h1>
+        </div>
 
-        {/* CSS Column Masonry */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {images.map((src, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="break-inside-avoid relative group cursor-pointer overflow-hidden border border-brand-800"
-              onClick={() => setSelectedImage(i)}
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          {["All", "Bridal", "Hair", "Makeup"].map(cat => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-6 py-2 rounded-full text-sm tracking-wider uppercase transition-all duration-300 ${
+                filter === cat
+                  ? 'bg-brand-500 text-brand-900 font-medium'
+                  : 'bg-transparent border border-brand-800 text-brand-400 hover:border-brand-500'
+              }`}
             >
-              {/* Fallback solid background if image fails/missing */}
-              <div className="w-full h-64 bg-brand-800/50 flex items-center justify-center">
-                 <span className="text-brand-600/30">Image {i + 1}</span>
-              </div>
-              <div className="absolute inset-0 bg-brand-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-brand-100 font-serif border border-brand-100 px-4 py-2">View</span>
-              </div>
-            </motion.div>
+              {cat}
+            </button>
           ))}
         </div>
 
-        {/* Lightbox */}
-        <AnimatePresence>
-          {selectedImage !== null && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
-              onClick={() => setSelectedImage(null)}
-            >
-              <button
-                className="absolute top-6 right-6 text-brand-300 hover:text-white"
-                onClick={() => setSelectedImage(null)}
-              >
-                <X size={32} />
-              </button>
+        <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          <AnimatePresence>
+            {filteredImages.map((img) => (
               <motion.div
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.9 }}
-                className="w-full max-w-4xl h-[80vh] bg-brand-800 flex items-center justify-center border border-brand-600/30"
-                onClick={(e) => e.stopPropagation()}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                key={img.id}
+                className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-lg border border-brand-800/50 bg-brand-900/50"
+                onClick={() => setSelectedImage(img.id)}
               >
-                 <span className="text-brand-400 font-serif text-2xl">Image {selectedImage + 1} Full View</span>
+                <div className="w-full h-80 flex items-center justify-center bg-brand-900/30">
+                  <span className="text-brand-800 font-serif">{img.alt} Placeholder</span>
+                </div>
+                <div className="absolute inset-0 bg-brand-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-brand-500 font-serif border border-brand-500 px-6 py-2 rounded-full tracking-wider uppercase text-sm">View</span>
+                </div>
               </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        <Dialog open={selectedImage !== null} onOpenChange={(open) => !open && setSelectedImage(null)}>
+          <DialogContent className="max-w-4xl p-1 bg-transparent border-none shadow-none">
+            <DialogPrimitive.Title className="sr-only">Image View</DialogPrimitive.Title>
+            <DialogPrimitive.Description className="sr-only">Full screen view of gallery image.</DialogPrimitive.Description>
+            <div className="w-full aspect-video bg-brand-900 flex items-center justify-center rounded-lg border border-brand-800 relative">
+               <span className="text-brand-500 font-serif text-2xl">Image {selectedImage} Full View</span>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </PageTransition>
   );

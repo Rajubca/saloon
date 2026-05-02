@@ -9,8 +9,7 @@ export default function LoadingScreen() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // 2 second loading screen
-
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -19,36 +18,32 @@ export default function LoadingScreen() {
       {isLoading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-900 overflow-hidden"
+          exit={{ opacity: 0, y: "-100%" }}
+          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-brand-950"
         >
-          {/* Subtle background texture */}
-          <div className="absolute inset-0 opacity-20 bg-wood-texture pointer-events-none" />
-
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 text-center"
+            className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl text-brand-600 mb-4 tracking-widest font-serif">
+            <h1 className="text-4xl md:text-5xl text-brand-300 font-serif tracking-widest mb-2">
               FREE BIRD
             </h1>
-            <h2 className="text-xl md:text-2xl text-neon tracking-widest font-serif mb-8">
-              SALOON
-            </h2>
-            <motion.div
-              className="h-1 w-48 bg-brand-200 mx-auto rounded overflow-hidden"
-            >
-              <motion.div
-                className="h-full bg-brand-700"
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-              />
-            </motion.div>
+            <p className="text-brand-500 uppercase tracking-[0.3em] text-xs">
+              Luxury Salon
+            </p>
           </motion.div>
+
+          <div className="absolute bottom-20 w-48 h-[1px] bg-brand-800/50 overflow-hidden">
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: "100%" }}
+              transition={{ duration: 1.5, ease: "easeInOut", repeat: Infinity }}
+              className="w-full h-full bg-brand-500"
+            />
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

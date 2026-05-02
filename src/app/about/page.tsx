@@ -1,48 +1,80 @@
 "use client";
 
-import PageTransition from '@/components/PageTransition';
 import { motion } from 'framer-motion';
+import PageTransition from '@/components/PageTransition';
+import { Card, CardContent } from '@/components/ui/card';
+
 
 export default function About() {
+  const team = [
+    { name: "Ananya Desai", role: "Lead Stylist", exp: "10+ Years" },
+    { name: "Meera Patel", role: "Bridal Makeup Artist", exp: "8 Years" },
+    { name: "Kabir Singh", role: "Hair Color Specialist", exp: "12 Years" }
+  ];
+
   return (
     <PageTransition>
-      <div className="pt-12 pb-24 px-6 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-5xl font-serif text-brand-600 mb-6 text-neon">Our Story</h1>
-          <p className="text-xl text-brand-300">From a dusty dream to the premier nightlife destination.</p>
-        </motion.div>
+      <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+        {/* Story Section */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl md:text-6xl font-serif text-brand-100 mb-6">The Art of <br/><span className="text-gradient">Transformation</span></h1>
+            <div className="w-20 h-1 bg-brand-500 mb-8" />
+            <p className="text-brand-300 text-lg leading-relaxed mb-6">
+              Founded in the heart of Baroda, Free Bird Saloon was born from a passion for beauty and a commitment to luxury. We believe that every individual possesses a unique radiance waiting to be unleashed.
+            </p>
+            <p className="text-brand-400 leading-relaxed mb-8">
+              Our philosophy goes beyond standard salon services. We offer personalized consultations, utilizing premium products and cutting-edge techniques to ensure your vision becomes reality. Whether it&apos;s your wedding day or a routine touch-up, experience beauty redefined.
+            </p>
+          </motion.div>
 
-        <div className="space-y-24 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-brand-600/50 before:to-transparent">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative h-[600px] glass-card rounded-xl overflow-hidden"
+          >
+            {/* Placeholder for actual image */}
+            <div className="absolute inset-0 bg-brand-800/20 flex items-center justify-center">
+              <span className="text-brand-500/50 font-serif tracking-widest uppercase">Interior Image</span>
+            </div>
+            <div className="absolute inset-0 border-[1px] border-brand-500/20 m-4 rounded-lg pointer-events-none" />
+          </motion.div>
+        </div>
 
-          {[
-            { year: "2018", title: "The Vision", desc: "Rajash Joshi envisioned a place where the rustic charm of old saloons met the vibrant energy of modern nightlife." },
-            { year: "2020", title: "Breaking Ground", desc: "Construction began on Vaghodia Road, carefully sourcing reclaimed wood and vintage neon." },
-            { year: "2023", title: "The Grand Opening", desc: "Free Bird Saloon opened its doors, instantly becoming the go-to spot for live music and premium cocktails." }
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
-            >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-brand-600 bg-brand-900 text-brand-600 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 font-serif">
-                {index + 1}
-              </div>
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-brand-800/20 border border-brand-600/20 rounded">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-serif text-xl text-brand-100">{item.title}</h3>
-                  <span className="text-brand-600 text-sm font-bold">{item.year}</span>
-                </div>
-                <p className="text-brand-400">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Team Section */}
+        <div className="mb-24">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-brand-100 mb-4">Meet Our Experts</h2>
+            <p className="text-brand-400 max-w-2xl mx-auto">Dedicated professionals bringing international expertise to Baroda.</p>
+          </div>
 
+          <div className="grid md:grid-cols-3 gap-8">
+            {team.map((member, i) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2 }}
+              >
+                <Card className="overflow-hidden group hover:border-brand-500/50 transition-colors duration-300 bg-brand-900/40">
+                  <div className="h-80 bg-brand-800/30 relative">
+                     <div className="absolute inset-0 bg-gradient-to-t from-brand-900 to-transparent opacity-80" />
+                  </div>
+                  <CardContent className="pt-6 relative text-center">
+                    <h3 className="text-2xl font-serif text-brand-200 mb-1">{member.name}</h3>
+                    <p className="text-brand-500 mb-2">{member.role}</p>
+                    <p className="text-sm text-brand-400">{member.exp} Experience</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </PageTransition>

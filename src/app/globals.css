@@ -1,25 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #1a1a1a;
-  --color-brand-100: #262626;
-  --color-brand-200: #333333;
-  --color-brand-300: #404040;
-  --color-brand-400: #595959;
-  --color-brand-500: #8c6b5a; /* Deep brown */
-  --color-brand-600: #d4af37; /* Gold */
-  --color-brand-700: #ff3300; /* Neon red/orange */
-  --color-brand-800: #ff6600; /* Neon orange */
-  --color-brand-900: #0a0a0a; /* Black background */
+  --color-brand-50: #faf7f2;
+  --color-brand-100: #f5eedc;
+  --color-brand-200: #ead9b8;
+  --color-brand-300: #dfc293;
+  --color-brand-400: #d4a96a;
+  --color-brand-500: #c28c46; /* Gold */
+  --color-brand-600: #a9703b;
+  --color-brand-700: #8d5633;
+  --color-brand-800: #74452e;
+  --color-brand-900: #0f0f0f; /* Deep Black */
+  --color-brand-950: #050505;
 
-  --font-serif: 'Rye', serif; /* Western display font */
+  --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
 }
 
 @layer base {
   :root {
     --background: var(--color-brand-900);
-    --foreground: #f0f0f0;
+    --foreground: var(--color-brand-50);
   }
 
   html {
@@ -29,30 +30,34 @@
 
   body {
     background-color: var(--color-brand-900);
-    color: #f0f0f0;
+    color: var(--color-brand-50);
     font-family: var(--font-sans);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 }
 
 @layer utilities {
-  .text-neon {
-    text-shadow: 0 0 5px var(--color-brand-700), 0 0 10px var(--color-brand-700), 0 0 20px var(--color-brand-700), 0 0 40px var(--color-brand-800);
+  .glass {
+    background: rgba(15, 15, 15, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(194, 140, 70, 0.1);
   }
 
-  .border-neon {
-    box-shadow: 0 0 5px var(--color-brand-700), inset 0 0 5px var(--color-brand-700);
-    border-color: var(--color-brand-700);
+  .glass-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(194, 140, 70, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
 
-  .bg-wood-texture {
-    background-image: url('/assets/wood-texture.jpg');
-    background-size: cover;
-    background-blend-mode: multiply;
+  .text-gradient {
+    background: linear-gradient(to right, #dfc293, #c28c46, #a9703b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

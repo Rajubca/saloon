@@ -1,62 +1,74 @@
 "use client";
 
-import PageTransition from '@/components/PageTransition';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import PageTransition from '@/components/PageTransition';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { MapPin, Phone, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
   return (
     <PageTransition>
-      <div className="pt-12 pb-24 px-6 max-w-7xl mx-auto">
-        <h1 className="text-5xl font-serif text-brand-600 mb-16 text-center text-neon">Contact Us</h1>
+      <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-serif text-brand-100 mb-6">Get in <span className="text-gradient">Touch</span></h1>
+          <p className="text-brand-400 max-w-2xl mx-auto">We are here to answer your questions and help you schedule your next visit.</p>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Info & Map */}
+          {/* Info Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="space-y-12"
+            className="space-y-8"
           >
+            <Card className="bg-brand-900/30 border-brand-800/50">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-brand-500/10 flex items-center justify-center text-brand-500 shrink-0">
+                    <MapPin />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-xl text-brand-200 mb-2">Visit Our Studio</h3>
+                    <p className="text-brand-400 leading-relaxed">
+                      New Vaghodiya Road<br/>
+                      Baroda, Gujarat, India<br/>
+                      PIN: 390019
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             <div className="grid sm:grid-cols-2 gap-8">
-              <div>
-                <div className="flex items-center gap-3 text-brand-600 mb-4 border-b border-brand-800 pb-2">
-                  <MapPin size={20} />
-                  <h3 className="font-serif text-xl">Location</h3>
-                </div>
-                <p className="text-brand-300">New Vaghodiya Road</p>
-                <p className="text-brand-300">Baroda, Gujarat</p>
-              </div>
+              <Card className="bg-brand-900/30 border-brand-800/50">
+                <CardContent className="p-6">
+                  <div className="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center text-brand-500 mb-4">
+                    <Phone size={20} />
+                  </div>
+                  <h3 className="font-serif text-lg text-brand-200 mb-1">Call Us</h3>
+                  <p className="text-brand-400 text-sm mb-4">Mon-Sun, 10am to 8pm</p>
+                  <a href="tel:9898678440" className="text-brand-500 hover:text-brand-400 transition-colors">9898678440</a>
+                </CardContent>
+              </Card>
 
-              <div>
-                <div className="flex items-center gap-3 text-brand-600 mb-4 border-b border-brand-800 pb-2">
-                  <Phone size={20} />
-                  <h3 className="font-serif text-xl">Contact</h3>
-                </div>
-                <p className="text-brand-300">Rajash Joshi</p>
-                <p className="text-neon text-brand-600 font-bold mt-1">9898678440</p>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-3 text-brand-600 mb-4 border-b border-brand-800 pb-2">
-                  <Clock size={20} />
-                  <h3 className="font-serif text-xl">Hours</h3>
-                </div>
-                <p className="text-brand-300">Wed - Sun: 4PM - 2AM</p>
-                <p className="text-brand-300">Mon - Tue: Closed</p>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-3 text-brand-600 mb-4 border-b border-brand-800 pb-2">
-                  <Mail size={20} />
-                  <h3 className="font-serif text-xl">Email</h3>
-                </div>
-                <p className="text-brand-300">info@freebirdsaloon.com</p>
-              </div>
+              <Card className="bg-brand-900/30 border-brand-800/50">
+                <CardContent className="p-6">
+                  <div className="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center text-brand-500 mb-4">
+                    <MessageCircle size={20} />
+                  </div>
+                  <h3 className="font-serif text-lg text-brand-200 mb-1">WhatsApp</h3>
+                  <p className="text-brand-400 text-sm mb-4">Instant messaging</p>
+                  <a href="https://wa.me/919898678440" className="text-brand-500 hover:text-brand-400 transition-colors">+91 9898678440</a>
+                </CardContent>
+              </Card>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="w-full h-64 bg-brand-800/30 border border-brand-600/30 flex items-center justify-center">
-              <span className="text-brand-400 font-serif">Google Maps Embed Placeholder</span>
+            {/* Google Map Placeholder */}
+            <div className="w-full h-64 bg-brand-800/20 rounded-lg border border-brand-800/50 flex items-center justify-center">
+               <span className="text-brand-500/50 font-serif uppercase tracking-widest text-sm">Interactive Map Embed</span>
             </div>
           </motion.div>
 
@@ -64,26 +76,31 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-brand-800/20 p-8 border border-brand-600/30"
           >
-            <h3 className="text-2xl font-serif text-brand-100 mb-6">Send a Message</h3>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <label className="block text-sm text-brand-300 mb-2">Full Name</label>
-                <input required type="text" className="w-full bg-brand-900 border border-brand-800 px-4 py-3 text-brand-100 focus:outline-none focus:border-brand-600 transition-colors" />
-              </div>
-              <div>
-                <label className="block text-sm text-brand-300 mb-2">Email Address</label>
-                <input required type="email" className="w-full bg-brand-900 border border-brand-800 px-4 py-3 text-brand-100 focus:outline-none focus:border-brand-600 transition-colors" />
-              </div>
-              <div>
-                <label className="block text-sm text-brand-300 mb-2">Message</label>
-                <textarea required rows={5} className="w-full bg-brand-900 border border-brand-800 px-4 py-3 text-brand-100 focus:outline-none focus:border-brand-600 transition-colors"></textarea>
-              </div>
-              <button type="submit" className="w-full bg-transparent border border-brand-600 text-brand-600 font-semibold py-4 uppercase tracking-wider hover:bg-brand-600 hover:text-brand-900 transition-colors border-neon">
-                Send Message
-              </button>
-            </form>
+            <Card className="glass-card border-brand-800/50 h-full">
+              <CardContent className="p-8 md:p-10">
+                <h3 className="text-2xl font-serif text-brand-100 mb-8">Send a Message</h3>
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <div className="space-y-2">
+                    <label className="text-sm text-brand-300">Your Name</label>
+                    <Input required placeholder="Jane Doe" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-brand-300">Email Address</label>
+                    <Input type="email" required placeholder="jane@example.com" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-brand-300">Subject</label>
+                    <Input required placeholder="Inquiry about bridal package" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-brand-300">Message</label>
+                    <Textarea required placeholder="How can we help you?" />
+                  </div>
+                  <Button type="submit" className="w-full">Send Message</Button>
+                </form>
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </div>
