@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.venv
+*.png
+dev_server.log
+dev_server.pid
+visual_test.py
