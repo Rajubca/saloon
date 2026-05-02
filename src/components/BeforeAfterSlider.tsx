@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 
@@ -14,19 +14,31 @@ export default function BeforeAfterSlider({ beforeImage, afterImage }: SliderPro
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState(0);
 
+  const x = useMotionValue(0);
+  const clipPath = useTransform(x, (value) => `inset(0 ${containerWidth - value}px 0 0)`);
+
   useEffect(() => {
-    // Only set mounted state after initial render to avoid hydration mismatch
-    const timer = setTimeout(() => {
-        setIsMounted(true);
-        if (containerRef.current) {
-          setContainerWidth(containerRef.current.offsetWidth);
-        }
-    }, 0);
-    return () => clearTimeout(timer);
+    setIsMounted(true);
   }, []);
 
-  const x = useMotionValue(containerWidth / 2);
-  const clipPath = useTransform(x, (value) => `inset(0 ${containerWidth - value}px 0 0)`);
+  useEffect(() => {
+    if (isMounted && containerRef.current) {
+        const resizeObserver = new ResizeObserver((entries) => {
+            for (let entry of entries) {
+                const width = entry.contentRect.width;
+                setContainerWidth(width);
+                x.set(width / 2);
+            }
+        });
+
+        resizeObserver.observe(containerRef.current);
+
+        return () => {
+            resizeObserver.disconnect();
+        };
+    }
+  }, [isMounted, x]);
+
 
   if (!isMounted) return <div className="w-full h-[600px] bg-muted animate-pulse rounded-xl" />;
 
