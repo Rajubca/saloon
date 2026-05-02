@@ -35,7 +35,7 @@ export default function Home() {
           <div className="w-full h-full bg-brand-800/20" />
         </motion.div>
 
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
