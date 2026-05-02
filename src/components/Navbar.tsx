@@ -1,110 +1,122 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Scissors } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Offers', href: '#offers' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Contact', href: '#contact' },
-];
+import { Menu, X } from 'lucide-react';
+import ReservationModal from './ReservationModal';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    // Throttle for performance
+    let rafId: number;
+    const throttledScroll = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(handleScroll);
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Menu', href: '/menu' },
+    { name: 'Events', href: '/events' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <Scissors className={`w-8 h-8 ${scrolled ? 'text-brand-800' : 'text-white'}`} />
-            <span className={`text-2xl font-serif font-bold ${scrolled ? 'text-brand-900' : 'text-white'}`}>
-              xSaloon
-            </span>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled ? 'bg-brand-900/95 backdrop-blur-sm border-b border-brand-200/20 py-4' : 'bg-transparent py-6'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-2 z-50">
+            <span className="text-2xl font-serif text-brand-600 tracking-wider">FREE BIRD</span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium uppercase tracking-wider transition-colors hover:text-brand-500 ${
-                  scrolled ? 'text-brand-900' : 'text-white/90'
-                }`}
+                className="text-brand-100 hover:text-brand-600 transition-colors uppercase text-sm tracking-wider"
               >
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="#book"
-              className="px-6 py-2.5 bg-brand-500 text-white text-sm font-medium uppercase tracking-widest hover:bg-brand-600 transition-colors"
+            <button
+              onClick={() => setIsReservationModalOpen(true)}
+              className="border border-brand-600 text-brand-600 px-6 py-2 uppercase text-sm tracking-wider hover:bg-brand-600 hover:text-brand-900 transition-colors"
             >
-              Book Now
-            </Link>
+              Book Table
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Toggle */}
           <button
-            className="md:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden z-50 text-brand-100"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Menu"
           >
-            {isOpen ? (
-              <X className={`w-6 h-6 ${scrolled ? 'text-brand-900' : 'text-white'}`} />
-            ) : (
-              <Menu className={`w-6 h-6 ${scrolled ? 'text-brand-900' : 'text-white'}`} />
-            )}
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Nav */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden"
-          >
-            <div className="flex flex-col py-4">
+        {/* Mobile Nav */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 right-0 bg-brand-900 border-b border-brand-200/20 py-6 px-6 flex flex-col gap-6 md:hidden z-40"
+            >
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="px-6 py-3 text-brand-900 hover:bg-brand-50 transition-colors"
+                  className="text-xl text-brand-100 font-serif hover:text-brand-600"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Link
-                href="#book"
-                onClick={() => setIsOpen(false)}
-                className="mx-6 mt-4 px-6 py-3 bg-brand-500 text-white text-center font-medium hover:bg-brand-600 transition-colors"
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsReservationModalOpen(true);
+                }}
+                className="border border-brand-600 text-brand-600 px-6 py-3 uppercase text-sm tracking-wider w-full"
               >
-                Book Appointment
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+                Book Table
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+
+      <ReservationModal
+        isOpen={isReservationModalOpen}
+        onClose={() => setIsReservationModalOpen(false)}
+      />
+    </>
   );
 }
