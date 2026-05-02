@@ -303,6 +303,7 @@ export default function Services() {
             <button
               onClick={closeModal}
               className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-50 p-2 bg-brand-800/50 rounded-full hover:bg-brand-800 cursor-pointer"
+              aria-label="Close modal"
             >
               <X className="w-8 h-8" />
             </button>
@@ -354,12 +355,14 @@ export default function Services() {
                 <button
                   onClick={prevImage}
                   className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 text-white backdrop-blur-md hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20"
+                  aria-label="Previous image"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={nextImage}
                   className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 text-white backdrop-blur-md hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20"
+                  aria-label="Next image"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
@@ -371,6 +374,7 @@ export default function Services() {
                       key={idx}
                       onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
                       className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === currentImageIndex ? 'w-6 bg-white' : 'bg-white/50 hover:bg-white/80'}`}
+                      aria-label={`View image ${idx + 1}`}
                     />
                   ))}
                 </div>
