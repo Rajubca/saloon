@@ -57,7 +57,7 @@ export default function Navbar() {
         <div
           className={`flex items-center justify-between transition-all duration-500 ${
             isScrolled
-              ? 'w-full max-w-5xl bg-brand-900/60 backdrop-blur-md border border-brand-800/60 rounded-full px-8 py-3 shadow-2xl shadow-brand-900/50'
+              ? 'w-full max-w-5xl bg-brand-900/60 backdrop-blur-md rounded-full px-8 py-3 shadow-2xl shadow-brand-900/50'
               : 'w-full max-w-7xl bg-transparent px-4 py-2 border-b border-transparent'
           }`}
         >
@@ -139,7 +139,7 @@ export default function Navbar() {
 
       {/* Mobile Header */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 lg:hidden ${
-        isScrolled ? 'bg-brand-900/80 backdrop-blur-md border-b border-brand-800/50 py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-brand-900/80 backdrop-blur-md py-3' : 'bg-transparent py-5'
       }`}>
         <div className="px-6 flex justify-between items-center relative z-50">
           <Link href="/" className="flex flex-col">
