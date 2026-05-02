@@ -20,33 +20,33 @@ const servicesData: Record<string, ServiceItem[]> = {
       title: 'Precision Haircut',
       desc: 'Expert cutting tailored to your face shape.',
       price: '₹250+',
-      img: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2576&auto=format&fit=crop',
+      img: '/images/image-2.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2576&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1620331311520-246422fd82f9?q=80&w=2572&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2669&auto=format&fit=crop'
+        '/images/image-2.jpeg',
+        '/images/image-3.jpeg',
+        '/images/image-4.jpeg'
       ]
     },
     {
       title: 'Luxury Hair Spa',
       desc: 'Deep conditioning treatment that nourishes the roots.',
       price: '₹800+',
-      img: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2669&auto=format&fit=crop',
+      img: '/images/image-5.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2669&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2670&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=2670&auto=format&fit=crop'
+        '/images/image-5.jpeg',
+        '/images/image-6.jpeg',
+        '/images/image-7.jpeg'
       ]
     },
     {
       title: 'Coloring & Highlights',
       desc: 'Vibrant, long-lasting color from subtle to complete transformations.',
       price: '₹1200+',
-      img: 'https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=2636&auto=format&fit=crop',
+      img: '/images/image-8.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=2636&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=2670&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?q=80&w=2574&auto=format&fit=crop'
+        '/images/image-8.jpeg',
+        '/images/image-9.jpeg',
+        '/images/image-10.jpeg'
       ]
     },
   ],
@@ -55,33 +55,33 @@ const servicesData: Record<string, ServiceItem[]> = {
       title: 'Signature Facial',
       desc: 'Rejuvenating skincare tailored to your skin type.',
       price: '₹500+',
-      img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2670&auto=format&fit=crop',
+      img: '/images/image-11.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2670&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2670&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?q=80&w=2670&auto=format&fit=crop'
+        '/images/image-11.jpeg',
+        '/images/image-12.jpeg',
+        '/images/image-13.jpeg'
       ]
     },
     {
       title: 'Anti-Aging Therapy',
       desc: 'Restore youthfulness and elasticity to your skin.',
       price: '₹1500+',
-      img: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?q=80&w=2670&auto=format&fit=crop',
+      img: '/images/image-13.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?q=80&w=2670&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2670&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2670&auto=format&fit=crop'
+        '/images/image-13.jpeg',
+        '/images/image-11.jpeg',
+        '/images/image-12.jpeg'
       ]
     },
     {
       title: 'Deep Pore Cleansing',
       desc: 'Removes impurities and unclogs pores effectively.',
       price: '₹800+',
-      img: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2670&auto=format&fit=crop',
+      img: '/images/image-12.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2670&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?q=80&w=2670&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2670&auto=format&fit=crop'
+        '/images/image-12.jpeg',
+        '/images/image-13.jpeg',
+        '/images/image-11.jpeg'
       ]
     },
   ],
@@ -90,33 +90,33 @@ const servicesData: Record<string, ServiceItem[]> = {
       title: 'Pre-Bridal Package',
       desc: 'Comprehensive prep including facials, waxing, and spa.',
       price: '₹5000+',
-      img: 'https://images.unsplash.com/photo-1505934333218-8fe21ff88d08?q=80&w=2669&auto=format&fit=crop',
+      img: '/images/image-14.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1505934333218-8fe21ff88d08?q=80&w=2669&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1512496015851-a1fbcf6ce8d2?q=80&w=2671&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=2671&auto=format&fit=crop'
+        '/images/image-14.jpeg',
+        '/images/image-15.jpeg',
+        '/images/image-1.jpeg'
       ]
     },
     {
       title: 'Bridal Makeup',
       desc: 'Flawless, long-wearing makeup application for your special day.',
       price: '₹8000+',
-      img: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=2671&auto=format&fit=crop',
+      img: '/images/image-1.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=2671&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1505934333218-8fe21ff88d08?q=80&w=2669&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1512496015851-a1fbcf6ce8d2?q=80&w=2671&auto=format&fit=crop'
+        '/images/image-1.jpeg',
+        '/images/image-14.jpeg',
+        '/images/image-15.jpeg'
       ]
     },
     {
       title: 'Party Makeup',
       desc: 'Elegant and sophisticated looks for bridesmaids and guests.',
       price: '₹2500+',
-      img: 'https://images.unsplash.com/photo-1512496015851-a1fbcf6ce8d2?q=80&w=2671&auto=format&fit=crop',
+      img: '/images/image-15.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1512496015851-a1fbcf6ce8d2?q=80&w=2671&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=2671&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1505934333218-8fe21ff88d08?q=80&w=2669&auto=format&fit=crop'
+        '/images/image-15.jpeg',
+        '/images/image-1.jpeg',
+        '/images/image-14.jpeg'
       ]
     },
   ],
@@ -125,33 +125,33 @@ const servicesData: Record<string, ServiceItem[]> = {
       title: 'Classic Manicure',
       desc: 'Complete nail care including shaping, cuticle work, and polish.',
       price: '₹400+',
-      img: 'https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=2669&auto=format&fit=crop',
+      img: '/images/image-2.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=2669&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2669&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2574&auto=format&fit=crop'
+        '/images/image-2.jpeg',
+        '/images/image-3.jpeg',
+        '/images/image-4.jpeg'
       ]
     },
     {
       title: 'Spa Pedicure',
       desc: 'Relaxing foot soak, scrub, massage, and expert polish application.',
       price: '₹600+',
-      img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2669&auto=format&fit=crop',
+      img: '/images/image-3.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2669&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=2669&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2574&auto=format&fit=crop'
+        '/images/image-3.jpeg',
+        '/images/image-2.jpeg',
+        '/images/image-4.jpeg'
       ]
     },
     {
       title: 'Gel Extensions',
       desc: 'Durable, beautiful extensions with custom nail art available.',
       price: '₹1500+',
-      img: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2574&auto=format&fit=crop',
+      img: '/images/image-4.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2574&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=2669&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2669&auto=format&fit=crop'
+        '/images/image-4.jpeg',
+        '/images/image-2.jpeg',
+        '/images/image-3.jpeg'
       ]
     },
   ],

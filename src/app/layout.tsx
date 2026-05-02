@@ -13,8 +13,8 @@ import WhatsAppWidget from '@/components/WhatsAppWidget';
 import StickyBooking from '@/components/StickyBooking';
 
 export const metadata: Metadata = {
-  title: 'xSaloon | Luxury Salon on Vaghodia Road, Baroda',
-  description: 'Experience premium haircuts, spa, coloring, and bridal makeup at xSaloon, Baroda.',
+  title: 'Free Bird Saloon | Luxury Salon on Vaghodia Road, Baroda',
+  description: 'Experience premium haircuts, spa, coloring, and bridal makeup at Free Bird Saloon, Baroda.',
 };
 
 export default function RootLayout({

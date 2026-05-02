@@ -66,7 +66,7 @@ export default function Location() {
             <div>
               <h3 className="text-3xl font-serif font-bold text-brand-900 mb-6">Experience Luxury on Vaghodia Road</h3>
               <p className="text-brand-700 leading-relaxed text-lg mb-8">
-                Nestled in the bustling heart of Baroda, xSaloon offers a tranquil escape from the city&apos;s fast pace. Easily accessible with ample parking available for our guests.
+                Nestled in the bustling heart of Baroda, Free Bird Saloon offers a tranquil escape from the city&apos;s fast pace. Easily accessible with ample parking available for our guests.
               </p>
             </div>
 
@@ -74,7 +74,7 @@ export default function Location() {
               <div className="bg-white p-6 rounded-xl border border-brand-100 shadow-sm hover:shadow-md transition-shadow">
                 <h4 className="font-serif font-bold text-xl text-brand-900 mb-3">Address</h4>
                 <p className="text-brand-600 text-sm leading-relaxed">
-                  xSaloon Premium Care<br/>
+                  Free Bird Saloon Premium Care<br/>
                   Near Main Crossroad,<br/>
                   Vaghodia Road,<br/>
                   Baroda, Gujarat 390019
@@ -89,8 +89,8 @@ export default function Location() {
                 <a href="tel:9898678440" className="block text-brand-500 font-bold hover:text-brand-700 transition-colors mb-2">
                   9898678440
                 </a>
-                <a href="mailto:hello@xsaloon.com" className="block text-brand-500 font-bold hover:text-brand-700 transition-colors">
-                  hello@xsaloon.com
+                <a href="mailto:hello@free-bird-saloon.com" className="block text-brand-500 font-bold hover:text-brand-700 transition-colors">
+                  hello@free-bird-saloon.com
                 </a>
               </div>
             </div>

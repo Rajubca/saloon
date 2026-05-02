@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { Camera } from 'lucide-react';
 
 const instaPosts = [
-  'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2669&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1620331311520-246422fd82f9?q=80&w=2572&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2576&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2669&auto=format&fit=crop',
+  '/images/image-5.jpeg',
+  '/images/image-6.jpeg',
+  '/images/image-7.jpeg',
+  '/images/image-8.jpeg',
 ];
 
 export default function CameraFeed() {
@@ -32,7 +32,7 @@ export default function CameraFeed() {
               transition={{ duration: 1.0, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-brand-600"
             >
-              @xSaloon_Baroda
+              @FreeBirdSaloon_Baroda
             </motion.p>
           </div>
           <motion.a

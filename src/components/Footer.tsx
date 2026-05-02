@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="space-y-6">
           <a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')} className="flex items-center space-x-2 text-brand-100">
             <Scissors className="w-8 h-8" />
-            <span className="text-3xl font-serif font-bold tracking-wider">xSaloon</span>
+            <span className="text-3xl font-serif font-bold tracking-wider">Free Bird Saloon</span>
           </a>
           <p className="text-brand-300 text-sm leading-relaxed max-w-xs">
             Experience luxury grooming and self-care in the heart of Baroda. Where style meets sophistication.
@@ -83,14 +83,14 @@ export default function Footer() {
             </li>
             <li className="flex items-center space-x-3">
               <Mail className="w-5 h-5 text-brand-500 shrink-0" />
-              <span className="text-brand-300 text-sm">hello@xsaloon.com</span>
+              <span className="text-brand-300 text-sm">hello@free-bird-saloon.com</span>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-center text-brand-400 text-sm">
-        <p>&copy; {new Date().getFullYear()} xSaloon. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Free Bird Saloon. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -7,7 +7,7 @@ const reviews = [
   {
     name: "Riya Patel",
     service: "Bridal Makeup",
-    review: "I had my bridal makeup done at xSaloon and it was absolutely perfect. The team is incredibly professional and made me feel so comfortable. The makeup lasted all day!"
+    review: "I had my bridal makeup done at Free Bird Saloon and it was absolutely perfect. The team is incredibly professional and made me feel so comfortable. The makeup lasted all day!"
   },
   {
     name: "Aman Desai",

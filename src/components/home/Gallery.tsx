@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion';
 
 const images = [
-  'https://images.unsplash.com/photo-1521590832167-7bfcfaa6362f?q=80&w=2670&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2669&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=2680&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2669&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=2636&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2670&auto=format&fit=crop',
+  '/images/image-9.jpeg',
+  '/images/image-10.jpeg',
+  '/images/image-11.jpeg',
+  '/images/image-12.jpeg',
+  '/images/image-13.jpeg',
+  '/images/image-14.jpeg',
 ];
 
 export default function Gallery() {

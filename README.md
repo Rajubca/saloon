@@ -1,6 +1,6 @@
-# xSaloon - Luxury Salon Experience
+# Free Bird Saloon - Luxury Salon Experience
 
-Welcome to the **xSaloon** frontend repository! This is a modern, fully responsive, and animated website built for a premium salon located on Vaghodia Road, Baroda. It features a complete showcase of services, special offers, customer testimonials, and an integrated booking form.
+Welcome to the **Free Bird Saloon** frontend repository! This is a modern, fully responsive, and animated website built for a premium salon located on Vaghodia Road, Baroda. It features a complete showcase of services, special offers, customer testimonials, and an integrated booking form.
 
 ## 🌟 Features
 
@@ -107,4 +107,4 @@ In the future, a backend administration panel will be added, allowing you to:
 
 ---
 
-Built with ❤️ for xSaloon.
+Built with ❤️ for Free Bird Saloon.

@@ -6,7 +6,7 @@ const offers = [
   {
     tag: 'First Visit',
     title: 'Welcome Discount',
-    desc: 'Get 20% off on any service during your first visit to xSaloon.',
+    desc: 'Get 20% off on any service during your first visit to Free Bird Saloon.',
     code: 'WELCOME20',
     bg: 'bg-brand-100'
   },
