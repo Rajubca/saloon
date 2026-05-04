@@ -20,31 +20,31 @@ const servicesData: Record<string, ServiceItem[]> = {
       title: 'Precision Haircut',
       desc: 'Expert cutting tailored to your face shape.',
       price: '₹250+',
-      img: '/images/image-2.jpeg',
+      img: '/images/image-17.jpeg',
       gallery: [
-        '/images/image-2.jpeg',
-        '/images/image-3.jpeg',
-        '/images/image-4.jpeg'
+        '/images/image-17.jpeg',
+        '/images/image-18.jpeg',
+        '/images/image-19.jpeg'
       ]
     },
     {
       title: 'Luxury Hair Spa',
       desc: 'Deep conditioning treatment that nourishes the roots.',
       price: '₹800+',
-      img: '/images/image-5.jpeg',
+      img: '/images/image-20.jpeg',
       gallery: [
-        '/images/image-5.jpeg',
-        '/images/image-6.jpeg',
-        '/images/image-7.jpeg'
+        '/images/image-20.jpeg',
+        '/images/image-21.jpeg',
+        '/images/image-22.jpeg'
       ]
     },
     {
       title: 'Coloring & Highlights',
       desc: 'Vibrant, long-lasting color from subtle to complete transformations.',
       price: '₹1200+',
-      img: '/images/image-8.jpeg',
+      img: '/images/image-23.jpeg',
       gallery: [
-        '/images/image-8.jpeg',
+        '/images/image-23.jpeg',
         '/images/image-9.jpeg',
         '/images/image-10.jpeg'
       ]
@@ -94,16 +94,16 @@ const servicesData: Record<string, ServiceItem[]> = {
       gallery: [
         '/images/image-14.jpeg',
         '/images/image-15.jpeg',
-        '/images/image-1.jpeg'
+        '/images/image-16.jpeg'
       ]
     },
     {
       title: 'Bridal Makeup',
       desc: 'Flawless, long-wearing makeup application for your special day.',
       price: '₹8000+',
-      img: '/images/image-1.jpeg',
+      img: '/images/image-16.jpeg',
       gallery: [
-        '/images/image-1.jpeg',
+        '/images/image-16.jpeg',
         '/images/image-14.jpeg',
         '/images/image-15.jpeg'
       ]
@@ -115,7 +115,7 @@ const servicesData: Record<string, ServiceItem[]> = {
       img: '/images/image-15.jpeg',
       gallery: [
         '/images/image-15.jpeg',
-        '/images/image-1.jpeg',
+        '/images/image-16.jpeg',
         '/images/image-14.jpeg'
       ]
     },
@@ -125,33 +125,33 @@ const servicesData: Record<string, ServiceItem[]> = {
       title: 'Classic Manicure',
       desc: 'Complete nail care including shaping, cuticle work, and polish.',
       price: '₹400+',
-      img: '/images/image-2.jpeg',
+      img: '/images/image-17.jpeg',
       gallery: [
-        '/images/image-2.jpeg',
-        '/images/image-3.jpeg',
-        '/images/image-4.jpeg'
+        '/images/image-17.jpeg',
+        '/images/image-18.jpeg',
+        '/images/image-19.jpeg'
       ]
     },
     {
       title: 'Spa Pedicure',
       desc: 'Relaxing foot soak, scrub, massage, and expert polish application.',
       price: '₹600+',
-      img: '/images/image-3.jpeg',
+      img: '/images/image-18.jpeg',
       gallery: [
-        '/images/image-3.jpeg',
-        '/images/image-2.jpeg',
-        '/images/image-4.jpeg'
+        '/images/image-18.jpeg',
+        '/images/image-17.jpeg',
+        '/images/image-19.jpeg'
       ]
     },
     {
       title: 'Gel Extensions',
       desc: 'Durable, beautiful extensions with custom nail art available.',
       price: '₹1500+',
-      img: '/images/image-4.jpeg',
+      img: '/images/image-19.jpeg',
       gallery: [
-        '/images/image-4.jpeg',
-        '/images/image-2.jpeg',
-        '/images/image-3.jpeg'
+        '/images/image-19.jpeg',
+        '/images/image-17.jpeg',
+        '/images/image-18.jpeg'
       ]
     },
   ],
