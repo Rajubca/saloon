@@ -17,7 +17,7 @@ export default function About() {
               transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-brand-500 uppercase tracking-widest text-sm font-semibold mb-4 block"
             >
-              The xSaloon Experience
+              The Free Bird Saloon Experience
             </motion.span>
 
             <motion.h2
@@ -38,7 +38,7 @@ export default function About() {
               transition={{ duration: 1.0, delay: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="text-brand-700 text-lg leading-relaxed mb-6"
             >
-              Located in the vibrant heart of Vaghodia Road, Baroda, xSaloon is more than just a place to get a haircut. It&apos;s a sanctuary designed for those who appreciate the finer details of self-care.
+              Located in the vibrant heart of Vaghodia Road, Baroda, Free Bird Saloon is more than just a place to get a haircut. It&apos;s a sanctuary designed for those who appreciate the finer details of self-care.
             </motion.p>
 
             <motion.p
@@ -84,7 +84,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
               className="absolute inset-4 bg-cover bg-center shadow-2xl"
-              style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=2511&auto=format&fit=crop")' }}
+              style={{ backgroundImage: 'url("/images/image-2.jpeg")' }}
             />
           </div>
 

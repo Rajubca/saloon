@@ -47,7 +47,7 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
           className="text-5xl md:text-7xl lg:text-8xl font-serif text-white font-bold mb-8 tracking-wide"
         >
-          xSaloon
+          Free Bird Saloon
         </motion.h1>
 
         <motion.p

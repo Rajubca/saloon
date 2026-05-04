@@ -61,7 +61,7 @@ export default function Navbar() {
           <a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')} className="flex items-center space-x-2">
             <Scissors className={`w-8 h-8 transition-colors duration-500 ${scrolled ? 'text-brand-800' : 'text-white'}`} />
             <span className={`text-2xl font-serif font-bold transition-colors duration-500 ${scrolled ? 'text-brand-900' : 'text-white'}`}>
-              xSaloon
+              Free Bird Saloon
             </span>
           </a>
 
