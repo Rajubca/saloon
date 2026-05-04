@@ -66,9 +66,18 @@ export default function Contact() {
               </Card>
             </div>
 
-            {/* Google Map Placeholder */}
-            <div className="w-full h-64 bg-brand-800/20 rounded-lg border border-brand-800/50 flex items-center justify-center">
-               <span className="text-brand-500/50 font-serif uppercase tracking-widest text-sm">Interactive Map Embed</span>
+            {/* Google Map Embed */}
+            <div className="w-full h-64 rounded-lg overflow-hidden border border-brand-800/50 relative">
+               <iframe
+                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14765.419266133465!2d73.2198!3d22.2981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc5fd3d8199b5%3A0x6b6697fb949219e!2sNew%20VIP%20Rd%2C%20Vadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                 width="100%"
+                 height="100%"
+                 style={{ border: 0, filter: "grayscale(80%) invert(90%) contrast(1.2)" }}
+                 allowFullScreen={false}
+                 loading="lazy"
+                 referrerPolicy="no-referrer-when-downgrade"
+                 title="Free Bird Saloon Location Map"
+               ></iframe>
             </div>
           </motion.div>
 
