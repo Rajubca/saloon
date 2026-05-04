@@ -2,22 +2,41 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import PageTransition from '@/components/PageTransition';
-import { Dialog, DialogContent, } from '@/components/ui/dialog';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 
+// Map the downloaded files to categories randomly or specifically
 const galleryImages = [
-  { id: 1, category: "Bridal", src: "/assets/g1.jpg", alt: "Bridal Makeup 1" },
-  { id: 2, category: "Hair", src: "/assets/g2.jpg", alt: "Hair Styling 1" },
-  { id: 3, category: "Makeup", src: "/assets/g3.jpg", alt: "Party Makeup 1" },
-  { id: 4, category: "Bridal", src: "/assets/g4.jpg", alt: "Bridal Makeup 2" },
-  { id: 5, category: "Hair", src: "/assets/g5.jpg", alt: "Hair Styling 2" },
-  { id: 6, category: "Makeup", src: "/assets/g6.jpg", alt: "Party Makeup 2" },
+  { id: 1, category: "Bridal", src: "/assets/real/18-gallery.jpg", alt: "Bridal Makeup" },
+  { id: 2, category: "Hair", src: "/assets/real/20-gallery.jpg", alt: "Hair Styling" },
+  { id: 3, category: "Makeup", src: "/assets/real/201-gallery.jpg", alt: "Party Makeup" },
+  { id: 4, category: "Bridal", src: "/assets/real/22-gallery.jpg", alt: "Bridal Session" },
+  { id: 5, category: "Hair", src: "/assets/real/23-gallery.jpg", alt: "Hair Coloring" },
+  { id: 6, category: "Makeup", src: "/assets/real/25-gallery.jpg", alt: "Makeup Look" },
+  { id: 7, category: "Bridal", src: "/assets/real/251-gallery.jpg", alt: "Bridal Preparation" },
+  { id: 8, category: "Hair", src: "/assets/real/252-gallery.jpg", alt: "Hair Cut" },
+  { id: 9, category: "Makeup", src: "/assets/real/26-gallery.jpg", alt: "Glam Makeup" },
+  { id: 10, category: "Bridal", src: "/assets/real/261-gallery.jpg", alt: "Bridal Look" },
+  { id: 11, category: "Hair", src: "/assets/real/262-gallery.jpg", alt: "Hair Styling" },
+  { id: 12, category: "Makeup", src: "/assets/real/27-gallery.jpg", alt: "Party Makeup" },
+  { id: 13, category: "Bridal", src: "/assets/real/271-gallery.jpg", alt: "Bridal Special" },
+  { id: 14, category: "Hair", src: "/assets/real/272-gallery.jpg", alt: "Hair Spa" },
+  { id: 15, category: "Makeup", src: "/assets/real/28-gallery.jpg", alt: "Evening Makeup" },
+  { id: 16, category: "Bridal", src: "/assets/real/281-gallery.jpg", alt: "Wedding Look" },
+  { id: 17, category: "Hair", src: "/assets/real/282-gallery.jpg", alt: "Hair Treatment" },
+  { id: 18, category: "Makeup", src: "/assets/real/29-gallery.jpg", alt: "Photoshoot Makeup" },
+  { id: 19, category: "Bridal", src: "/assets/real/291-gallery.jpg", alt: "Bridal Trial" },
+  { id: 20, category: "Hair", src: "/assets/real/30-gallery.jpg", alt: "Blowdry" },
+  { id: 21, category: "Makeup", src: "/assets/real/301-gallery.jpg", alt: "Subtle Makeup" },
+  { id: 22, category: "Bridal", src: "/assets/real/302-gallery.jpg", alt: "Bridal Hair" },
+  { id: 23, category: "Hair", src: "/assets/real/31-gallery.jpg", alt: "Creative Coloring" },
 ];
 
 export default function Gallery() {
   const [filter, setFilter] = useState("All");
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
 
   const filteredImages = filter === "All"
     ? galleryImages
@@ -57,13 +76,20 @@ export default function Gallery() {
                 transition={{ duration: 0.3 }}
                 key={img.id}
                 className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-lg border border-brand-800/50 bg-brand-900/50"
-                onClick={() => setSelectedImage(img.id)}
+                onClick={() => setSelectedImage(img)}
               >
-                <div className="w-full h-80 flex items-center justify-center bg-brand-900/30">
-                  <span className="text-brand-800 font-serif">{img.alt} Placeholder</span>
+                <div className="w-full relative min-h-[300px]">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={500}
+                    height={500}
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
-                <div className="absolute inset-0 bg-brand-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-brand-500 font-serif border border-brand-500 px-6 py-2 rounded-full tracking-wider uppercase text-sm">View</span>
+                <div className="absolute inset-0 bg-brand-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
+                  <span className="text-brand-500 font-serif border border-brand-500 px-6 py-2 rounded-full tracking-wider uppercase text-sm mb-2">View</span>
+                  <span className="text-brand-200 text-sm">{img.category}</span>
                 </div>
               </motion.div>
             ))}
@@ -71,12 +97,20 @@ export default function Gallery() {
         </motion.div>
 
         <Dialog open={selectedImage !== null} onOpenChange={(open) => !open && setSelectedImage(null)}>
-          <DialogContent className="max-w-4xl p-1 bg-transparent border-none shadow-none">
+          <DialogContent className="max-w-4xl p-1 bg-transparent border-none shadow-none flex items-center justify-center h-[90vh]">
             <DialogPrimitive.Title className="sr-only">Image View</DialogPrimitive.Title>
             <DialogPrimitive.Description className="sr-only">Full screen view of gallery image.</DialogPrimitive.Description>
-            <div className="w-full aspect-video bg-brand-900 flex items-center justify-center rounded-lg border border-brand-800 relative">
-               <span className="text-brand-500 font-serif text-2xl">Image {selectedImage} Full View</span>
-            </div>
+            {selectedImage && (
+              <div className="w-full h-full relative">
+                <Image
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  fill
+                  className="object-contain"
+                  quality={100}
+                />
+              </div>
+            )}
           </DialogContent>
         </Dialog>
       </div>

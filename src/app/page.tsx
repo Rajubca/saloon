@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
-
+import Image from 'next/image';
 import PageTransition from '@/components/PageTransition';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -19,9 +19,9 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   const services = [
-    { title: "Bridal Makeup", desc: "Flawless perfection for your special day.", img: "/assets/placeholder-bridal.jpg" },
-    { title: "Hair Styling", desc: "Modern cuts, coloring, and styling.", img: "/assets/placeholder-hair.jpg" },
-    { title: "Skin Treatments", desc: "Rejuvenating therapies for a radiant glow.", img: "/assets/placeholder-skin.jpg" }
+    { title: "Bridal Makeup", desc: "Flawless perfection for your special day.", img: "/assets/real/18-gallery.jpg" },
+    { title: "Hair Styling", desc: "Modern cuts, coloring, and styling.", img: "/assets/real/20-gallery.jpg" },
+    { title: "Skin Treatments", desc: "Rejuvenating therapies for a radiant glow.", img: "/assets/real/22-gallery.jpg" }
   ];
 
   return (
@@ -31,8 +31,13 @@ export default function Home() {
         <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-brand-950/70 z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-transparent to-transparent z-10" />
-          {/* Using a placeholder div for image to satisfy boundaries, but ready for next/image */}
-          <div className="w-full h-full bg-brand-800/20" />
+          <Image
+            src="/assets/real/262-gallery.jpg"
+            alt="Free Bird Saloon Luxury Interior"
+            fill
+            className="object-cover object-center"
+            priority
+          />
         </motion.div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-32">
@@ -41,18 +46,18 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.2 }}
           >
-            <span className="text-brand-500 tracking-[0.3em] uppercase text-sm mb-6 block">Welcome to Free Bird</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-brand-50 mb-8 leading-tight">
+            <span className="text-brand-500 tracking-[0.3em] uppercase text-sm mb-6 block drop-shadow-md">Welcome to Free Bird</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-brand-50 mb-8 leading-tight drop-shadow-xl">
               Unleash Your <span className="text-gradient italic">Beauty</span>
             </h1>
-            <p className="text-lg md:text-xl text-brand-200 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-brand-200 mb-12 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
               Baroda&apos;s premier luxury studio for bridal makeup, hair styling, and transformative skin treatments.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button asChild size="lg" className="text-base">
+              <Button asChild size="lg" className="text-base shadow-xl">
                 <Link href="/booking">Book Appointment</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-base bg-brand-900/50 backdrop-blur-sm">
+              <Button asChild variant="outline" size="lg" className="text-base bg-brand-900/50 backdrop-blur-sm shadow-xl">
                 <Link href="/services">Explore Services</Link>
               </Button>
             </div>
@@ -83,11 +88,18 @@ export default function Home() {
                 transition={{ delay: i * 0.2, duration: 0.6 }}
                 className="group cursor-pointer relative overflow-hidden glass-card rounded-lg h-[400px]"
               >
-                <div className="absolute inset-0 bg-brand-800/30 transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-900/50 to-transparent opacity-80" />
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="absolute inset-0 bg-brand-800/30 transition-transform duration-700 group-hover:scale-110">
+                  <Image
+                    src={service.img}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-900/50 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-70" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
                   <h3 className="text-2xl font-serif text-brand-100 mb-2 group-hover:text-brand-400 transition-colors">{service.title}</h3>
-                  <p className="text-brand-300/80 mb-4">{service.desc}</p>
+                  <p className="text-brand-200 mb-4">{service.desc}</p>
                   <div className="w-10 h-[1px] bg-brand-500 group-hover:w-full transition-all duration-500" />
                 </div>
               </motion.div>

@@ -3,13 +3,13 @@
 import { motion } from 'framer-motion';
 import PageTransition from '@/components/PageTransition';
 import { Card, CardContent } from '@/components/ui/card';
-
+import Image from 'next/image';
 
 export default function About() {
   const team = [
-    { name: "Ananya Desai", role: "Lead Stylist", exp: "10+ Years" },
-    { name: "Meera Patel", role: "Bridal Makeup Artist", exp: "8 Years" },
-    { name: "Kabir Singh", role: "Hair Color Specialist", exp: "12 Years" }
+    { name: "Ananya Desai", role: "Lead Stylist", exp: "10+ Years", img: "/assets/real/30-gallery.jpg" },
+    { name: "Meera Patel", role: "Bridal Makeup Artist", exp: "8 Years", img: "/assets/real/301-gallery.jpg" },
+    { name: "Kabir Singh", role: "Hair Color Specialist", exp: "12 Years", img: "/assets/real/302-gallery.jpg" }
   ];
 
   return (
@@ -38,11 +38,14 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative h-[600px] glass-card rounded-xl overflow-hidden"
           >
-            {/* Placeholder for actual image */}
-            <div className="absolute inset-0 bg-brand-800/20 flex items-center justify-center">
-              <span className="text-brand-500/50 font-serif tracking-widest uppercase">Interior Image</span>
-            </div>
-            <div className="absolute inset-0 border-[1px] border-brand-500/20 m-4 rounded-lg pointer-events-none" />
+            <Image
+              src="/assets/real/271-gallery.jpg"
+              alt="Free Bird Saloon Art of Transformation"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 border-[1px] border-brand-500/20 m-4 rounded-lg pointer-events-none z-10" />
+            <div className="absolute inset-0 bg-brand-900/10 pointer-events-none" />
           </motion.div>
         </div>
 
@@ -64,9 +67,10 @@ export default function About() {
               >
                 <Card className="overflow-hidden group hover:border-brand-500/50 transition-colors duration-300 bg-brand-900/40">
                   <div className="h-80 bg-brand-800/30 relative">
-                     <div className="absolute inset-0 bg-gradient-to-t from-brand-900 to-transparent opacity-80" />
+                     <Image src={member.img} alt={member.name} fill className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-90" />
                   </div>
-                  <CardContent className="pt-6 relative text-center">
+                  <CardContent className="pt-6 relative text-center -mt-16 z-10">
                     <h3 className="text-2xl font-serif text-brand-200 mb-1">{member.name}</h3>
                     <p className="text-brand-500 mb-2">{member.role}</p>
                     <p className="text-sm text-brand-400">{member.exp} Experience</p>
