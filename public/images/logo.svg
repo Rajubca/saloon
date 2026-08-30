@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9F1E2" />
+      <stop offset="35%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#B89428" />
+      <stop offset="100%" stop-color="#E5C07B" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0" />
+      <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Stylized Wing / Bird Icon -->
+  <g transform="translate(15, 12)">
+    <path d="M 0,28 C 12,6 30,0 48,6 C 36,12 28,24 26,38 C 22,24 12,18 0,28 Z" fill="url(#goldGrad)" />
+    <path d="M 12,38 C 24,20 38,16 52,22 C 42,26 34,34 32,48 C 28,36 20,32 12,38 Z" fill="url(#goldGrad)" opacity="0.85" />
+    <circle cx="48" cy="8" r="3" fill="#FFF8E7" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(85, 24)">
+    <!-- FREE BIRD -->
+    <text x="0" y="16" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="24" font-weight="700" letter-spacing="3.5" fill="url(#goldGrad)">FREE BIRD</text>
+    
+    <!-- Thin divider -->
+    <line x1="0" y1="26" x2="310" y2="26" stroke="url(#accentGrad)" stroke-width="1" />
+    
+    <!-- SALON & ACADEMY -->
+    <text x="2" y="38" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="600" letter-spacing="5" fill="#E4C585">SALON &amp; ACADEMY • RAJESH JOSHI</text>
+  </g>
+</svg>
